@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+</head>
+<body>
+
+  <div id="container">
+    <h1>Weather Dashboard</h1>
+
+    <div class="inputElements">
+      <input 
+        type="text" 
+        id="inputBox" 
+        placeholder="Enter a city, e.g. San Jose"
+      >
+
+      <button id="searchButton" onclick="generateInfo()">
+        Search
+      </button>
+    </div>
+
+    <div class="mainCard"></div>
+    
+    <div id="cards">
+      <div class="forecast-card card1"></div>
+      <div class="forecast-card card2"></div>
+      <div class="forecast-card card3"></div>
+      <div class="forecast-card card4"></div>
+    </div>
+  </div>
+
+</body>
+</html>
