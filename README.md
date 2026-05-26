@@ -62,7 +62,7 @@ To run this project, you need an OpenWeather API key.
 In `script.js`, replace:
 
 ```js
-const API_KEY = "YOUR_API_KEY_HERE";
+const API_KEY = "GENERATE AN API KEY FROM OPEN WEATHER IT'S FREE";
 ```
 
 with your own API key.
