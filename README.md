@@ -41,8 +41,6 @@ The app allows users to input a city, and data retrieved from the OpenWeather AP
 
 ![Weather Dashboard Screenshot](assets/demo.jpg)
 
-> Make sure `assets/demo.jpg` exists in the project folder. If the file name or path is different, update the image path above.
-
 ---
 
 ## 🛠️ Tech Stack
