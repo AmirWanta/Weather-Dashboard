@@ -167,12 +167,12 @@ https://api.openweathermap.org/data/2.5/forecast?q={CITY_NAME}&appid={API_KEY}&u
 
 ## 📝 Changelog
 
-### v1.1
-- Added a Fahrenheit/Cesius converter button
+### v1.1 - June 2026
+- Added a Fahrenheit/Celsius converter button
 - Added different weather backgrounds based off conditions
 
-### v1.0
--Added four-day forecast cards
+### v1.0 - May 2026
+- Added four-day forecast cards
 
 ## 🔮 Future Improvements
 
