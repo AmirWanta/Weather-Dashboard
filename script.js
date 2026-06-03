@@ -5,27 +5,72 @@ const card2 = document.querySelector(".card2");
 const card3 = document.querySelector(".card3");
 const card4 = document.querySelector(".card4");
 const cards = document.getElementById("cards");
+const convertor = document.getElementById("convertor");
 
 
+let currentTemp;
+let currentTemp1;
+let currentTemp2;
+let currentTemp3;
+let currentTemp4;
 
-const API_KEY = "GENERATE AN API KEY FROM OPEN WEATHER IT'S FREE";
+let isFahrenheit = true;
+
+
+const weatherBackgrounds = {
+  clear: "./images/sunny.jpg",
+  cloud: "./images/cloudy.jpg",
+  rain: "./images/rain.png",
+  drizzle: "./images/drizzle.jpg",
+  thunderstorm: "./images/storm.png",
+  snow: "./images/snow.png",
+  mist: "./images/fog.jpg",
+  fog: "./images/fog.jpg",
+  haze: "./images/haze.png",
+};
+
+
+const API_KEY = "generate API KEY on open weather api it's free"
+
 
 function generateInfo() {
 
     let city = input.value.trim();
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=imperial`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
         .then(res => {
             if(!res.ok) {
-                alert(`input a valid city or API key may not be valid`);
+                alert(`input a valid city or invalid API key`);
                 return;
             }
 
             return res.json();
         })
-        .then(data => {
+       .then(data => {
 
             if(!data) return;
+
+            currentTemp = data.main.temp;
+
+
+            const description = data.weather[0].description.toLowerCase();
+
+            let background =  null;
+
+            for (const key in weatherBackgrounds) {
+                if (description.includes(key)) {
+                    background = weatherBackgrounds[key];
+                    break;
+                }
+            }
+
+            if (background) {
+                document.body.style.backgroundImage = `url(${background})`;
+            } else {
+                document.body.style.backgroundImage = "";
+            }
+             
+
 
             mainCard.innerHTML = `
             <h2 class="cityName">${data.name}</h2>
@@ -37,13 +82,10 @@ function generateInfo() {
             `;
 
             mainCard.style.display = "flex";
-
-
-
         })
     
     //fetch next 5 days
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=imperial`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=imperial`)
         .then(res => {
             if(!res.ok) {
                 return;
@@ -52,8 +94,13 @@ function generateInfo() {
             return res.json();
         })
         .then(data => {
-
+            
             if(!data) return;
+            
+            currentTemp1 = data.list[0].main.temp;
+            currentTemp2 = data.list[8].main.temp;
+            currentTemp3 = data.list[16].main.temp;
+            currentTemp4 = data.list[24].main.temp;
 
             card1.innerHTML = `
                 <h2 class="cityName">${new Date(data.list[0].dt_txt).toLocaleDateString("en-US", { weekday:"long"})}</h2>
@@ -100,3 +147,32 @@ function generateInfo() {
 
             })
     }
+
+convertor.addEventListener("click", () => {
+                const temp = document.querySelector(".temperature");
+                const temp1 = card1.querySelector(".temperature");
+                const temp2 = card2.querySelector(".temperature");
+                const temp3 = card3.querySelector(".temperature");
+                const temp4 = card4.querySelector(".temperature");
+
+                if (!temp) return;
+
+                if(isFahrenheit) {
+                    temp.textContent = `${((currentTemp - 32) * 5 / 9).toFixed(1)}°C`;
+                    temp1.textContent =  `${((currentTemp1 - 32) * 5 / 9).toFixed(1)}°C`;
+                    temp2.textContent =  `${((currentTemp2 - 32) * 5 / 9).toFixed(1)}°C`;
+                    temp3.textContent =  `${((currentTemp3 - 32) * 5 / 9).toFixed(1)}°C`;
+                    temp4.textContent =  `${((currentTemp4 - 32) * 5 / 9).toFixed(1)}°C`;
+
+                } else {
+                    temp.textContent = `${currentTemp}°F`
+                    temp1.textContent = `${currentTemp1}°F`
+                    temp2.textContent = `${currentTemp2}°F`
+                    temp3.textContent = `${currentTemp3}°F`
+                    temp4.textContent = `${currentTemp4}°F`
+
+                }
+                
+                isFahrenheit = !isFahrenheit;
+
+            })
