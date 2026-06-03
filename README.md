@@ -40,9 +40,9 @@ The app allows users to input a city, and data retrieved from the OpenWeather AP
 
 ### Screenshots
 
-![Weather Dashboard Screenshot](assets/DemoForCelsius)
+![Weather Dashboard Screenshot](assets/DemoForCelsius.jpg)
 
-![Weather Dashboard Screenshot](assets/DemoForFahrenheit)
+![Weather Dashboard Screenshot](assets/DemoForFahrenheit.jpg)
 
 ---
 
