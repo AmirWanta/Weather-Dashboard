@@ -25,6 +25,7 @@ A weather dashboard that lets users search for a city and view current weather c
 - [Usage](#usage)
 - [API Reference](#api-reference)
 - [Features](#features)
+- [Changelog](#changelog)
 - [Future Improvements](#future-improvements)
 - [Acknowledgements](#acknowledgements)
 - [Author](#author)
@@ -39,7 +40,9 @@ The app allows users to input a city, and data retrieved from the OpenWeather AP
 
 ### Screenshots
 
-![Weather Dashboard Screenshot](assets/demo.jpg)
+![Weather Dashboard Screenshot](assets/DemoForCelsius)
+
+![Weather Dashboard Screenshot](assets/DemoForFahrenheit)
 
 ---
 
@@ -149,7 +152,8 @@ https://api.openweathermap.org/data/2.5/forecast?q={CITY_NAME}&appid={API_KEY}&u
 ## ✨ Features
 
 - Search weather by city
-- Display current temperature
+- Display current temperature in Fahrenheit or Celsius
+- Display a weather background based off what the conditions are
 - Display humidity and wind speed
 - Display weather description
 - Display weather icons
@@ -161,13 +165,20 @@ https://api.openweathermap.org/data/2.5/forecast?q={CITY_NAME}&appid={API_KEY}&u
 
 ---
 
+## 📝 Changelog
+
+### v1.1
+- Added a Fahrenheit/Cesius converter button
+- Added different weather backgrounds based off conditions
+
+### v1.0
+-Added four-day forecast cards
+
 ## 🔮 Future Improvements
 
-- Add Fahrenheit/Celsius toggle
 - Add recent search history using localStorage
 - Add loading animation while fetching data
 - Improve mobile responsiveness
-- Add dynamic background based on weather condition
 - Add Enter key search support
 
 ---
