@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #232526, #414345);
     font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 h1 {
@@ -41,6 +45,12 @@ h1 {
 
 #searchButton {
     width: 90px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#convertor {
+    width: 135px;
     border-radius: 8px;
     cursor: pointer;
 }
